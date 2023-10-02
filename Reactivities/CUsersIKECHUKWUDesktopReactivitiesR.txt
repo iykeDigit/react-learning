@@ -1,0 +1,4 @@
+C:\Users\IKECHUKWU\Desktop\Reactivities\Reactivities\API
+C:\Users\IKECHUKWU\Desktop\Reactivities\Reactivities\Persistence
+
+dotnet ef migrations add InitialCreate -s C:\Users\IKECHUKWU\Desktop\Reactivities\Reactivities\API -p C:\Users\IKECHUKWU\Desktop\Reactivities\Reactivities\Persistence

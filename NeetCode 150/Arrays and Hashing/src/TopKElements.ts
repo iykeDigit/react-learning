@@ -40,4 +40,3 @@ function topKFrequent(nums: number[], k: number) : number[]{
 
 topKFrequent([3,0,1,0], 1);
 
-

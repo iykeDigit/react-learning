@@ -4,6 +4,8 @@ import NavBar from "./components/NavBar";
 import Cart from "./components/cart";
 import ExpandableText from "./components/ExpandableText";
 import MoreComponent from "./components/MoreComponent";
+import Form from "./components/Form";
+import ExpenseList from "./expense-tracker/components/ExpenseList";
 
 const App = () => {
   //updating objects
@@ -137,22 +139,28 @@ const App = () => {
   };
 */
 
-
+/*Form
   return (
     <>
     <div>
-      <MoreComponent>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Atque officia fugit nam! Recusandae ut, praesentium optio voluptatum quis velit voluptate ea in non illo nihil, ratione sunt autem doloremque expedita.
-        Nulla reprehenderit numquam aspernatur ad aliquam quis dicta? Ut consectetur id fugiat impedit dolorem? Veritatis molestias voluptatibus ex laboriosam reiciendis possimus odio, non labore modi voluptatem commodi excepturi, aliquid totam!
-        Facere, velit dolor odio similique quia recusandae officiis, cum totam obcaecati rem voluptate nisi ex error eveniet exercitationem soluta. Porro molestias ullam voluptate odit minus laborum vel, enim adipisci ipsa.
-        Itaque, voluptatem dolorem nisi officia dolor quam magnam in reprehenderit eos neque dicta labore voluptas. Ad quisquam rerum, fugit ducimus reiciendis amet, nobis ratione animi suscipit quidem possimus? Ea, eligendi.
-        Tempora possimus accusamus, odio reiciendis vitae fugiat fuga neque ratione iure hic at corporis. Et quidem ullam voluptate illum rem sapiente modi nesciunt vero, aspernatur cumque pariatur odio eaque adipisci.
-        Molestias quas voluptatem esse beatae deleniti, culpa recusandae, nemo laudantium asperiores ducimus saepe libero blanditiis odio eveniet provident tempore aliquid expedita ea porro? Facere maiores, cumque qui beatae aliquid aut.
-        Molestiae illum qui ab ullam ratione repellat voluptatibus. Dolorem voluptatum eos maxime quam provident neque asperiores quae illum eveniet explicabo quo consectetur ratione, dignissimos illo voluptatem labore dolorum eaque ex!
-        Optio sequi, excepturi laudantium nulla eaque delectus. Est nemo exercitationem sint temporibus dolore libero adipisci voluptatem? Nisi, cum repudiandae. Odit voluptatum voluptate atque dicta, maxime voluptatem laboriosam provident unde animi?
-        Aliquam dolorem provident asperiores? Consequuntur deserunt voluptatem eligendi a labore veniam veritatis, voluptatum dolores eos eius aliquid. Itaque ad cum ex nostrum voluptatibus, earum id temporibus, sapiente quae accusantium sequi?
-        Praesentium dicta earum a enim inventore tempora maxime repellendus? Eius, non assumenda odio veniam, dolor esse illum cumque illo asperiores magnam, deserunt corporis nemo beatae possimus consequatur necessitatibus doloremque tempore?
-      </MoreComponent>
+      <Form />
+    </div>
+    </>
+  )
+  */
+
+  const [expenses, setExpenses] = useState([
+    {id: 1, description:'aaa', amount: 10, category: 'Utilities'},
+    {id: 2, description:'bbb', amount: 11, category: 'Utilities'},
+    {id: 3, description:'ccc', amount: 12, category: 'Utilities'},
+    {id: 4, description:'ddd', amount: 13, category: 'Utilities'},
+  ])
+    
+  if(expenses.length === 0) return null;
+  return(
+    <>
+    <div>
+      <ExpenseList expenses={expenses} onDelete={(id) => setExpenses(expenses.filter((e) => e.id !== id))}/>
     </div>
     </>
   )

@@ -1,0 +1,156 @@
+import { useState } from "react";
+import styles from "./ListGroup.css";
+import styled from "styled-components";
+
+const List = styled.ul`
+  list-style: circle;
+  padding: 0;
+`;
+
+interface ListItemProps {
+  active: boolean;
+}
+
+const ListItem = styled.li<ListItemProps>`
+  padding: 5px 0;
+  background: ${(props) => (props.active === true ? "blue" : "none")};
+  font-weight: ${(props) => (props.active === true ? "bold" : "italic")};
+`;
+interface Props {
+  items: string[];
+  heading: string;
+  onSelectItem: (item: string) => void;
+}
+
+function ListGroup({ items, heading, onSelectItem }: Props) {
+  const [selectedIndex, setSelectedIndex] = useState(0);
+
+  return (
+    <>
+      <h1>{heading}</h1>
+      {items.length == 0 && <p>No item found</p>}
+      <List>
+        {items.map((item, index) => (
+          <ListItem
+            active={index === selectedIndex}
+            className={
+              selectedIndex === index
+                ? "list-group-item active"
+                : "list-group-item"
+            }
+            key={item}
+            onClick={() => {
+              setSelectedIndex(index);
+              onSelectItem(item);
+            }}
+          >
+            {item}
+          </ListItem>
+        ))}
+      </List>
+    </>
+  );
+}
+
+export default ListGroup;
+
+
+
+
+
+
+
+import Message from "./Message";
+import Alert from "./components/Alert";
+import Languages from "./components/Languages";
+import ListGroup from "./components/ListGroup";
+import Button from "./components/Button/Button";
+import './App.css';
+import { BsFillCalendarFill } from 'react-icons/bs';
+import {FcLike} from 'react-icons/bs';
+
+function App() {
+  let items = ['New York', 'Los Angeles', 'San Francisco'];
+  const handleSelectItem = (item:string) => console.log(item);
+  return (
+    <div>
+      <Button onClick={() => {}}>My Button</Button>
+      <BsFillCalendarFill />
+      <FcLike color="red"/>
+    </div>
+  );
+}
+
+export default App;
+
+
+import Message from "./Message";
+import Alert from "./components/Alert";
+import Languages from "./components/Languages";
+import ListGroup from "./components/ListGroup";
+import Button from "./components/Button/Button";
+import './App.css';
+import { BsFillCalendarFill } from 'react-icons/bs';
+import Like from "./components/Like/Like"
+
+function App() {
+  let items = ['New York', 'Los Angeles', 'San Francisco'];
+  const handleSelectItem = (item:string) => console.log(item);
+  const handleClick = () => console.log("Clicked");
+  return (
+    <div>
+      <Like onClickItem={handleClick} />
+    </div>
+  );
+}
+
+export default App;
+
+
+
+
+
+
+
+
+
+
+
+import { useState } from "react";
+import Message from "./components/Message";
+
+function App(){
+  const [drink, setDrink] = useState({
+    title: "Americano",
+    price: 5,
+  });
+
+  const handleClick = () => {
+    const newDrink = {
+      title: drink.title,
+      price: 7
+    }
+    setDrink(newDrink);
+  };
+
+
+  const [country, setCountry] = useState({
+    name: "Nigeria",
+    capital: "Abuja"
+  })
+
+
+  const changeCountry = () =>{
+    setCountry({...country, capital: "Lasgidi"})
+  }
+
+  return (
+    <div>
+      {country.capital}
+      <button onClick={changeCountry}>Click Me</button>    
+    </div>
+  );
+}
+
+export default App;
+
